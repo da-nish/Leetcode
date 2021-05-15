@@ -1,5 +1,14 @@
 /**
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+l1 and l2 can be different size
+and will meet at same point
+
+both the pointers are running with same speed 
+(when l1 and l2 complete same distance they will meet at the same point )
+
+
+
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
