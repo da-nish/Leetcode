@@ -1,0 +1,78 @@
+Catalan Number
+https://www.youtube.com/watch?v=0pTN0qzpt-Y
+
+
+C0 = 1 -fix
+C1 = 1 -fix
+C2 = C0*C1 + C1*C0 => 1*1 + 1*1 => 2
+C3 = C0*C2 + C1*C1 + C2*C0 => 2*1 + 1*1 + 1*2 => 5
+
+
+Formula: CN = C0*C(N-1) + C1*C(N-2) + C3*C(N-3) + ... C(N-1)*C0
+//multiply first with last  ADD  multiply first+1 with last-1 ... so on
+
+
+
+Question 1 - number of BST with N nodes
+	https://leetcode.com/problems/unique-binary-search-trees/
+
+	0 node = 1 way
+	1 node = 1 way
+
+	2 node = 2 way
+
+		suppose A and B (it is bst)
+		(root)A left B
+		(root)B right A
+
+	3 node = 5 way
+
+		suppose A and B (it is bst)
+		(root)A right BC
+		(root)B (left A and right C)
+		(root)C left AB
+
+		single node 1 way
+		double node is 2 way
+		So 
+			A=1 BC=2, 2*1
+			B=1 A=1 C=1, 1*1*1 
+			C=1 AB=2, 2*1
+			2+1+2;
+		making catalan pattern
+
+
+Question 2 - number of Unlabelled Tree with N nodes
+
+	same as question 1, just apply the catalan
+
+	But labelled != Unlabelled
+	to find labelled: find N catalan + factorial(N)
+
+
+Question 3 - Generate Parentheses
+	https://leetcode.com/problems/generate-parentheses/
+	in this question, return form braket strings, catalan can't form string it can give count, so don't use
+	but when we want to count use this approach
+
+	0 = 1 none
+	1 = 1 ()
+	2 = 2 (()), ()()
+		1 = (0) 1 // 0 inside 1 outside
+		2 = (1) 0 // 1 inside 0 outside
+
+	3 = 5 ((())), (())(), ()(()), ()()(), (()())
+		1 = (0) 2 // 0 inside 2 outsider
+		2 = (1) 1 // 1 inside 1 outsider
+		3 = (2) 0 // 2 inside 0 outsider
+
+	making catalan pattern
+
+Question 4 - Dyck Words of given length
+
+	given N, length of string
+	create string that contain either X or Y
+	At any index of string number of X should >= number of Y
+
+
+Question 5 - Mountain Ranges
